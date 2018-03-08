@@ -1,0 +1,53 @@
+<html>
+<head>
+
+</head>
+<body>
+  <div id="app"></div>
+
+
+
+
+    <template id="exemple">
+      <div>
+        <ul>
+          <li v-for="(curs,index) in Cursos" :key="index">
+            <a :href=curs.url>{{curs.name}}</a>
+        </li>
+        </ul>
+        <div v-if="mostrar">
+          {{mensaje}}
+          <img :src= imagen />
+        </div>
+        <button @click="toggleMostrar"> Mostrar/ocultar </button>
+      </div>
+    </template>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript">
+  const app = new Vue({
+    el: '#app',
+    template:'#exemple',
+    data: {
+      Cursos:[
+        {name:"Curs1",url:"url"},
+        {name:"Curs2",url:"url2"},
+        {name:"Curs3",url:"url3"}
+      ],
+      mostrar:false,
+      mensaje: "Hola Vue.js",
+      imagen:"http://cdn.imagentv.com/resources/defaults/v2/imagen_default300.png",
+    },
+    methods:{
+      toggleMostrar: function(){
+        this.mostrar = !this.mostrar
+      }
+    }
+  });
+</script>
+</body>
+</html>
